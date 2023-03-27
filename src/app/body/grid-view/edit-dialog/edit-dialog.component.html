@@ -1,0 +1,16 @@
+  <div class="container-fluid form-elements">
+    <div class="row">
+        <div class="col-md-12 px-0">
+            <h2 class="m-0">{{'body.Survey' | translate}}:</h2>
+            <p class="m-0">{{'body.Datatosendback' | translate}}</p>
+            <mat-form-field class="w-100 mt-4" appearance="outline">
+                <mat-label>{{'body.Data' | translate}}</mat-label>
+                <input matInput [(ngModel)]="data.name" placeholder="{{'body.Data' | translate}}">
+            </mat-form-field>
+        </div>
+        <div class="col-md-12 text-end px-0 mt-2">
+            <span [mat-dialog-close]="data.name" (click)="onNoClick()" class="mx-2">{{'body.NoThanks' | translate}}</span>
+            <button [mat-dialog-close]="data.name" class="btn">{{'body.OK' | translate}}</button>
+        </div>
+    </div>
+  </div>

@@ -1,0 +1,24 @@
+@import '../../../../assets/scss/variables';
+
+.btn {
+    background-color: $warning-color;
+    font-size: 1rem;
+    color: $white-color;
+    padding: 5px 20px;
+    border-radius: 5px;
+    text-align: center;
+    padding-top: 8px;
+    &:disabled {
+        background-color: $sep-border;
+    }
+}
+.mx-2 {
+    cursor: pointer;
+}
+
+.material-icons {
+  font-size: 80px;
+  color: $warning-color;
+  margin: 0 auto;
+  display: block;
+}

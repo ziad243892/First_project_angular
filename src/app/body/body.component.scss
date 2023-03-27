@@ -1,0 +1,49 @@
+@import '../../assets/scss/variables';
+
+section {
+    height: calc(100vh - 150px);
+    overflow: auto;
+    background-color: $white-color;
+    box-shadow: 0px 3px 8px $header-shadow;
+    padding: 28px 28px 0px 28px;
+    margin: 30px 44px;
+
+    .info {
+        height: 33px;
+        display: flex;
+        align-items: center;
+        background-color: $info-bg;
+        color: $info-color;
+        border-radius: 5px;
+        border: 1px solid $info-color;
+        font-size: 0.75rem;
+        font-weight: 500;
+        position: relative;
+        padding-top: 2px;
+        .material-icons {
+            margin-inline-start: 18px;
+            margin-inline-end: 5px;            
+        }
+        .material-icons.position-relative {
+            bottom: 2px;
+        }
+        &__close {
+            float: right;
+            font-size: 1.5rem;
+            cursor: pointer;
+            position: absolute;
+            right: 9px;
+            top: 4px;
+        }
+    }
+}
+
+.sort {
+   .material-icons{
+        color: $primary-color;
+        cursor: pointer;
+        &.active {
+            color: $font-color;
+        }
+   }
+}

@@ -1,0 +1,35 @@
+@import '../../../assets/scss/variables';
+
+.material-icons {
+    position: relative;
+    top: 7px;
+    font-size: 22px;
+    color: $primary-color;
+}
+
+.period-width {
+    width: 12%;
+}
+
+table:lang(ar) .material-icons {
+transform: rotate(180deg);
+}
+
+.btn {
+    background-color: $primary-color;
+    font-size: 1rem;
+    color: $white-color;
+    padding: 5px 20px;
+    border-radius: 5px;
+    text-align: center;
+    padding-top: 8px;
+    &:disabled {
+        background-color: $sep-border;
+    }
+}
+
+.btn.mx-2 {
+    background-color: $white-color;
+    border: 1px solid $primary-color;
+    color: $primary-color;
+}

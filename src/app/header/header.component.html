@@ -1,0 +1,22 @@
+<header class="container-fluid">
+    <div class="row">
+        <div class="col-md-6">
+            <span class="material-icons" title="{{'home.Menu' | translate}}">menu</span>
+            <img src="../../assets/img/logo.png" title="{{'home.Alkhawarzmi' | translate}}" alt="{{'home.Alkhawarzmi' | translate}}">
+        </div>
+        <div class="col-md-6 text-end account">
+            <p class="mb-0 d-inline-block">{{'home.title' | translate}}</p>
+            <div class="account__sep d-inline-block"></div>
+            <span class="account__circle d-inline-block">{{'home.namecode' | translate}}</span>
+            <span class="account__name d-inline-block">{{'home.name' | translate}}</span>
+            <span class="material-icons">arrow_drop_down</span>
+            <div class="account__sep d-inline-block"></div>
+            <span class="position-relative">
+                <span (click)="fontSize()" class="material-icons" title="{{'home.notifications' | translate}}">text_fields</span>
+            </span>   
+            <span (click)="darkTheme()" class="material-icons icon-margin" title="Dark/Light Mode">{{darkMode}}</span>
+            <span class="material-icons icon-margin icon-margin"(click)="selectLang()" title="{{'home.language' | translate}}">language</span>
+        </div>
+    </div>
+
+</header>

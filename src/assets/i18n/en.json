@@ -1,0 +1,38 @@
+{
+    "home" : {
+        "title": "ALL Survey",
+        "name": "Ziad Abuzayyad",
+        "namecode": "ZA",
+        "notifications": "Font",
+        "Email": "Email",
+        "language": "Language",
+        "Alkhawarzmi": "Alkhawarzmi",
+        "Menu": "Menu"
+    },
+    "body" : {
+        "info": "Information : Select a survey to Continue",
+        "AllSurveys": "All Surveys",
+        "Published": "Published",
+        "Closed": "Closed",
+        "Expired": "Expired",
+        "MapUpdate": "Map Update",
+        "Dashboard": "Dashboard",
+        "Survey": "Survey",
+        "Datatosendback": "Data to send back",
+        "Data": "Data",
+        "NoThanks": "No Thanks",
+        "OK": "Ok",
+        "SurveyName": "Survey Name",
+        "From": "From",
+        "TO": "To",
+        "Period": "Period",
+        "Delete": "Are you sure you want to delete this survey",
+        "StartDate": "Start Date",
+        "EndDate": "End Date",
+        "FILTER": "Apply",
+        "CLEAR": "Clear",
+        "ERRORMSG": "End Date should be after Start Date",
+        "delete": "Delete",
+        "edit": "Edit"
+    }
+}

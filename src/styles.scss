@@ -1,0 +1,202 @@
+@import '~ngx-toastr/toastr';
+@import './assets/scss/variables';
+@import './assets/scss/darkTheme';
+@import './assets/scss/fonts';
+
+html, body {
+    height: 100%;
+}
+html {
+    font-size: 14px;
+}
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-size: 1rem;
+    background-color: $body-bg;
+
+    .mat-tab-label, .mat-tab-link {
+        color: $font-color;
+        opacity: 0.56;
+    }
+
+    .mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar {
+        background-color: $primary-color;
+    }
+    .mat-tab-nav-bar, .mat-tab-header {
+        border-bottom: 0px solid rgba(0,0,0,0);
+    }
+    .mat-tab-label-active {
+        opacity: 1;
+    }
+
+    .mat-tab-label-container {
+        margin-bottom: 45px;
+    }
+
+    .mat-menu-content {
+        font-size: 1rem;
+        .material-icons {
+            font-size: 1.5rem;
+            color: $font-color;
+            position: relative;
+            top: 3px;
+            margin-inline-end: 5px;
+            margin-inline-start: 7px;
+        }
+        p{
+            cursor: pointer;
+            margin: 0;
+            margin-bottom: 4px;
+        }
+    }
+    .mat-radio-button.mat-accent .mat-radio-inner-circle,
+    .mat-radio-button.mat-accent .mat-radio-ripple
+    .mat-ripple-element:not(.mat-radio-persistent-ripple),
+    .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-persistent-ripple,
+    .mat-radio-button.mat-accent:active .mat-radio-persistent-ripple {
+        background-color: $primary-color;
+    }
+    .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+        border-color: $primary-color;
+    }
+}
+
+.survey {
+    .mat-select {
+        display: block;
+        width: 75%;
+        margin: 0 auto;
+        outline: none;
+        margin-top: 7px;
+        top: 2px;
+    }
+}
+
+.lang .info__close {
+    float: left !important;
+    right: unset !important;
+    left: -7px;
+}
+
+.text-end {
+    text-align: end !important;
+}
+
+table {
+    width: 100%;
+  }
+
+  body:lang(ar) {
+    .mat-dialog-container {
+        direction: rtl;
+    }
+  }
+
+  body:lang(en) {
+    .mat-dialog-container {
+        direction: ltr;
+    }
+  }
+
+  thead {
+    position: sticky;
+    top: -28px;
+    background-color: #fff;
+    z-index: 9;
+}
+
+.publishDelete {
+    display: none;
+}
+.form-elements{
+    &__form-field{
+        padding: 0 10px;
+        margin: 3px 0;
+    }
+    &__textarea{
+        padding: 0 10px;
+        margin: 3px 0;
+    }
+    &__select{
+        padding: 0 10px;
+        margin: 3px 0;
+    }
+    &__radio-btn{
+        & mat-radio-button{
+            margin: 5px 10px 10px;
+        }
+    }
+    &__checkbox{
+        & mat-checkbox{
+            margin: 5px 10px 10px;
+        }
+    &__chips{
+        padding: 0 10px;
+        margin: 3px 0;
+    }
+    }
+
+& .mat-form-field{
+    width: 100%;
+
+    &-appearance-outline{
+
+        & .mat-form-field-infix{
+            padding: .8rem 0;
+            border-top: .4rem solid transparent;
+    }
+
+    &.mat-form-field-can-float{
+        &.mat-form-field-should-float .mat-form-field-label, & .mat-input-server:focus+.mat-form-field-label-wrapper .mat-form-field-label{
+            transform: translateY(-1.2rem) scale(0.75);
+        }
+    }
+    
+    &.mat-focused .mat-form-field-outline-thick{
+        color: $sec-color !important;
+        ~ & .mat-form-field-suffix .mat-icon{
+            opacity: 1;
+        }
+    }
+
+    &:not(.mat-form-field-disabled) .mat-form-field-flex:hover .mat-form-field-outline-thick{
+        opacity: .7;
+    }
+
+    & .mat-form-field-prefix, & .mat-form-field-suffix{
+        top: .5em;
+    }
+    & .mat-form-field-outline-thick{
+        & .mat-form-field-outline-start, & .mat-form-field-outline-end, & .mat-form-field-outline-gap{
+            border-width: 1px !important;
+        }
+    }
+
+    &.mat-focused.mat-warn .mat-form-field-outline-thick, &.mat-form-field-invalid.mat-form-field-invalid .mat-form-field-outline-thick{
+        color: $danger-color;
+    }
+    &.mat-form-field-disabled .mat-form-field-outline{
+        color: $gray-color;
+        background-color: $disabled-color;
+        border-radius: 4px;
+    }
+}
+&-suffix .mat-icon{
+    font-size: $medium-icon;
+    opacity: 54%;
+    position: relative;
+    top: 4px;
+}
+}
+input.mat-input-element {
+    top: 3px;
+    position: relative;
+}
+.mat-form-field {
+    mat-label {
+        position: relative;
+        top: 3px;
+    }
+}
+}

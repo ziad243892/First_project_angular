@@ -1,0 +1,48 @@
+body.dark-mode {
+    background: rgb(106, 105, 105);
+    section {
+        color: #eee;
+        background: #222;
+        border-radius: 4px;
+        .mat-tab-label, body .mat-tab-link {
+            color: #fff;
+       }
+        .survey {
+            background-color: #424242;
+            .survey__name, .survey__date, .survey__more, .mat-select-placeholder, .mat-select-value,.mat-select-arrow {
+                color: #eee;
+           }
+       }
+        .info {
+            background-color: #b4b4b4 !important;
+            color: #eee !important;
+            border: 1px solid #eee !important;
+       }
+   }
+    header {
+        color: #eee;
+        background: #222;
+        p, .account__name, .material-icons {
+            color: #eee !important;
+       }
+   }
+   .sort .material-icons.active {
+    color: #eee !important;
+}
+
+.mat-table {
+    background-color: #b4b4b4 !important;
+    & * {
+        color: #eee !important; 
+    }
+}
+.mat-form-field-appearance-outline .mat-form-field-flex {
+    background: #eee;
+}
+.mat-radio-outer-circle {
+    border-color: #eee;
+}
+.published:hover, .publishedActive {
+    background-color: #7c7373;
+}
+}

@@ -1,0 +1,200 @@
+<div class="text-end">
+    <button class="btn" (click)="openDialog()" [disabled]="disabledButton">{{'body.Dashboard' | translate}}</button>
+</div>
+<div class="col-md-12 px-0 mt-2">
+    <mat-tab-group>
+       <mat-tab label="{{'body.AllSurveys' | translate}}">
+          <div class="container-fluid">
+             <div class="row">
+                <div *ngFor="let item of dataApi" class="col-md-3">
+                   <div class="survey" (click)="log(item)" [ngClass]="{'published': item.SURVEY_STATUS_EN == 'Published' , 'expired': item.SURVEY_STATUS_EN == 'Closed' || item.SURVEY_STATUS_EN == 'Expired' ,'publishedActive': item.isSelected, 'publishDelete': DeleteOne && item.isSelected  }">
+                      <div class="survey__circle">
+                         <span class="material-icons rot-45"
+                            *ngIf="item.SURVEY_STATUS_EN == 'Published'">send</span>
+                         <span class="material-icons"
+                            *ngIf="item.SURVEY_STATUS_EN == 'Expired'">hourglass_bottom</span>
+                         <span class="material-icons"
+                            *ngIf="item.SURVEY_STATUS_EN == 'Closed'">lock</span>
+                         <span class="material-icons"
+                            *ngIf="item.SURVEY_STATUS_EN == 'Map'">location_on</span>
+                      </div>
+                      <p *ngIf="Myservice.lang === 'en'" class="survey__name text-center">
+                           <ng-container *ngIf="!item.isSelected">{{item['SurveyName'| translate]}}</ng-container>
+                           <ng-container *ngIf="item.isSelected">{{ name }}</ng-container>
+                     </p>
+
+                     <p *ngIf="Myservice.lang === 'ar'" class="survey__name text-center">
+                        <ng-container *ngIf="!item.isSelected">{{item.SurveyNameAr}}</ng-container>
+                        <ng-container *ngIf="item.isSelected">{{ name }}</ng-container>
+                  </p>
+
+                      <hr class="mt-0 mb-0">
+                      <p *ngIf="item.SurveyPeriods?.length == 1" class="survey__date text-center">
+                         {{item.SurveyPeriods[0].START_DATE | date:'dd/MM/yyyy'}} -
+                         {{item.SurveyPeriods[0].END_DATE | date:'dd/MM/yyyy'}}
+                      </p>
+                      <ng-container *ngIf="item.SurveyPeriods?.length > 1">
+                         <mat-select placeholder="{{'body.Period' | translate}}">
+                            <mat-option *ngFor="let surveyPeriod of item.SurveyPeriods"
+                            [value]="surveyPeriod.ID">{{surveyPeriod.START_DATE |
+                            date:'dd/MM/yyyy'}} - {{surveyPeriod.END_DATE | date:'dd/MM/yyyy'}}
+                            </mat-option>
+                         </mat-select>
+                      </ng-container>
+                      <span [matMenuTriggerFor]="menu" class="material-icons survey__more"
+                         title="More">more_vert</span>
+                      <mat-menu #menu="matMenu">
+                         <p (click)="openDialog()"><span class="material-icons"> edit</span>{{'body.edit' | translate}}</p>
+                         <p (click)="DeleteDialog()"><span class="material-icons"> delete</span>{{'body.delete' | translate}}</p>
+                      </mat-menu>
+                   </div>
+                </div>
+             </div>
+          </div>
+       </mat-tab>
+       <mat-tab label="{{'body.Published' | translate}}">
+          <div class="container-fluid">
+             <div class="row">
+                <div *ngFor="let item of dataApi" class="col-md-3">
+                   <ng-container *ngIf="item.SURVEY_STATUS_EN === 'Published'">
+                      <div class="survey" (click)="log(item)" [ngClass]="{'published': item.SURVEY_STATUS_EN == 'Published' , 'expired': item.SURVEY_STATUS_EN == 'Closed' || item.SURVEY_STATUS_EN == 'Expired' ,'publishedActive': item.isSelected, 'publishDelete': DeleteOne && item.isSelected  }">
+                         <div class="survey__circle">
+                            <span class="material-icons rot-45">send</span>
+                         </div>
+                         <p class="survey__name text-center">
+                           <ng-container *ngIf="!item.isSelected">{{item['SurveyName'| translate]}}</ng-container>
+                           <ng-container *ngIf="item.isSelected">{{ name }}</ng-container>
+                     </p>
+                         <hr class="mt-0 mb-0">
+                         <p *ngIf="item.SurveyPeriods?.length == 1" class="survey__date text-center">
+                            {{item.SurveyPeriods[0].START_DATE | date:'dd/MM/yyyy'}} -
+                            {{item.SurveyPeriods[0].END_DATE | date:'dd/MM/yyyy'}}
+                         </p>
+                         <ng-container *ngIf="item.SurveyPeriods?.length > 1">
+                            <mat-select placeholder="{{'body.Period' | translate}}">
+                               <mat-option *ngFor="let surveyPeriod of item.SurveyPeriods"
+                               [value]="surveyPeriod.ID">{{surveyPeriod.START_DATE |
+                               date:'dd/MM/yyyy'}} - {{surveyPeriod.END_DATE | date:'dd/MM/yyyy'}}
+                               </mat-option>
+                            </mat-select>
+                         </ng-container>
+                         <span [matMenuTriggerFor]="menu" class="material-icons survey__more"
+                            title="More">more_vert</span>
+                         <mat-menu #menu="matMenu">
+                           <p (click)="openDialog()"><span class="material-icons"> edit</span>{{'body.edit' | translate}}</p>
+                           <p (click)="DeleteDialog()"><span class="material-icons"> delete</span>{{'body.delete' | translate}}</p>
+                         </mat-menu>
+                      </div>
+                   </ng-container>
+                </div>
+             </div>
+          </div>
+       </mat-tab>
+       <mat-tab label="{{'body.Closed' | translate}}">
+          <div class="container-fluid">
+             <div class="row">
+                <div *ngFor="let item of dataApi" class="col-md-3">
+
+                  
+                   <ng-container *ngIf="item.SURVEY_STATUS_EN === 'Closed'">
+                      <div class="survey" (click)="log(item)" [ngClass]="{'published': item.SURVEY_STATUS_EN == 'Published' , 'expired': item.SURVEY_STATUS_EN == 'Closed' || item.SURVEY_STATUS_EN == 'Expired' ,'publishedActive': item.isSelected, 'publishDelete': DeleteOne && item.isSelected  }">
+                         <div class="survey__circle">
+                            <span class="material-icons">lock</span>
+                         </div>
+                         <p class="survey__name text-center">
+                           <ng-container *ngIf="!item.isSelected">{{item['SurveyName'| translate]}}</ng-container>
+                           <ng-container *ngIf="item.isSelected">{{ name }}</ng-container>
+                     </p>
+                         <hr class="mt-0 mb-0">
+                         <p *ngIf="item.SurveyPeriods?.length == 1" class="survey__date text-center">
+                            {{item.SurveyPeriods[0].START_DATE | date:'dd/MM/yyyy'}} -
+                            {{item.SurveyPeriods[0].END_DATE | date:'dd/MM/yyyy'}}
+                         </p>
+                         <ng-container *ngIf="item.SurveyPeriods?.length > 1">
+                            <mat-select placeholder="{{'body.Period' | translate}}">
+                               <mat-option *ngFor="let surveyPeriod of item.SurveyPeriods"
+                               [value]="surveyPeriod.ID">{{surveyPeriod.START_DATE |
+                               date:'dd/MM/yyyy'}} - {{surveyPeriod.END_DATE | date:'dd/MM/yyyy'}}
+                               </mat-option>
+                            </mat-select>
+                         </ng-container>
+                         <span [matMenuTriggerFor]="menu" class="material-icons survey__more"
+                            title="More">more_vert</span>
+                         <mat-menu #menu="matMenu">
+                           <p (click)="openDialog()"><span class="material-icons"> edit</span>{{'body.edit' | translate}}</p>
+                           <p (click)="DeleteDialog()"><span class="material-icons"> delete</span>{{'body.delete' | translate}}</p>
+                         </mat-menu>
+                      </div>
+                   </ng-container>
+                </div>
+             </div>
+          </div>
+       </mat-tab>
+       <mat-tab label="{{'body.Expired' | translate}}">
+          <div class="container-fluid">
+             <div class="row">
+                <div *ngFor="let item of dataApi" class="col-md-3">
+                   <ng-container *ngIf="item.SURVEY_STATUS_EN === 'Expired'">
+                      <div class="survey" (click)="log(item)" [ngClass]="{'published': item.SURVEY_STATUS_EN == 'Published' , 'expired': item.SURVEY_STATUS_EN == 'Closed' || item.SURVEY_STATUS_EN == 'Expired' ,'publishedActive': item.isSelected, 'publishDelete': DeleteOne && item.isSelected  }">
+                         <div class="survey__circle">
+                            <span class="material-icons">hourglass_bottom</span>
+                         </div>
+                         <p class="survey__name text-center">
+                           <ng-container *ngIf="!item.isSelected">{{item['SurveyName'| translate]}}</ng-container>
+                           <ng-container *ngIf="item.isSelected">{{ name }}</ng-container>
+                     </p>
+                         <hr class="mt-0 mb-0">
+                         <p class="survey__date text-center">20/3/2021 - 30/3/2021</p>
+                         <span [matMenuTriggerFor]="menu" class="material-icons survey__more"
+                            title="More">more_vert</span>
+                         <mat-menu #menu="matMenu">
+                           <p (click)="openDialog()"><span class="material-icons"> edit</span>{{'body.edit' | translate}}</p>
+                           <p (click)="DeleteDialog()"><span class="material-icons"> delete</span>{{'body.delete' | translate}}</p>
+                         </mat-menu>
+                      </div>
+                   </ng-container>
+                </div>
+             </div>
+          </div>
+       </mat-tab>
+       <mat-tab label="{{'body.MapUpdate' | translate}}">
+          <div class="container-fluid">
+             <div class="row" *ngIf="dataApi">
+                <div *ngFor="let item of dataApi" class="col-md-3">
+                   <ng-container *ngIf="item.SURVEY_STATUS_EN === 'Map'">
+                      <div class="survey" (click)="log(item)" [ngClass]="{'published': item.SURVEY_STATUS_EN == 'Published' , 'expired': item.SURVEY_STATUS_EN == 'Closed' || item.SURVEY_STATUS_EN == 'Expired' ,'publishedActive': item.isSelected, 'publishDelete': DeleteOne && item.isSelected  }">
+                         <div class="survey__circle">
+                            <span class="material-icons"
+                               *ngIf="item.SURVEY_STATUS_EN == 'Map'">location_on</span>
+                         </div>
+                         <p class="survey__name text-center">
+                           <ng-container *ngIf="!item.isSelected">{{item['SurveyName'| translate]}}</ng-container>
+                           <ng-container *ngIf="item.isSelected">{{ name }}</ng-container>
+                     </p>
+                         <hr class="mt-0 mb-0">
+                         <p *ngIf="item.SurveyPeriods?.length == 1" class="survey__date text-center">
+                            {{item.SurveyPeriods[0].START_DATE | date:'dd/MM/yyyy'}} -
+                            {{item.SurveyPeriods[0].END_DATE | date:'dd/MM/yyyy'}}
+                         </p>
+                         <ng-container *ngIf="item.SurveyPeriods?.length > 1">
+                            <mat-select placeholder="{{'body.Period' | translate}}">
+                               <mat-option *ngFor="let surveyPeriod of item.SurveyPeriods"
+                               [value]="surveyPeriod.ID">{{surveyPeriod.START_DATE |
+                               date:'dd/MM/yyyy'}} - {{surveyPeriod.END_DATE | date:'dd/MM/yyyy'}}
+                               </mat-option>
+                            </mat-select>
+                         </ng-container>
+                         <span [matMenuTriggerFor]="menu" class="material-icons survey__more"
+                            title="More">more_vert</span>
+                         <mat-menu #menu="matMenu">
+                           <p (click)="openDialog()"><span class="material-icons"> edit</span>{{'body.edit' | translate}}</p>
+                           <p (click)="DeleteDialog()"><span class="material-icons"> delete</span>{{'body.delete' | translate}}</p>
+                         </mat-menu>
+                      </div>
+                   </ng-container>
+                </div>
+             </div>
+          </div>
+       </mat-tab>
+    </mat-tab-group>
+ </div>

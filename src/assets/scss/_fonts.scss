@@ -1,0 +1,49 @@
+*:not(.material-icons) {
+    font-family: myfont, myfont-ar, "Helvetica Neue", sans-serif !important;
+}
+
+@font-face{
+	font-family:myfont-light;
+	src:url(../fonts/ClanPro-News.eot);
+}
+
+@font-face{
+	font-family:myfont-light;
+	src:url(../fonts/ClanPro-News.otf);
+}
+
+@font-face{
+	font-family:myfont;
+	src:url(../fonts/ClanPro-Medium.eot);
+}
+
+@font-face{
+	font-family:myfont;
+	src:url(../fonts/ClanPro-Medium.otf);
+}
+
+@font-face{
+	font-family:myfont-bold;
+	src:url(../fonts/ClanPro-Black.otf);
+}
+
+//arabic font
+@font-face{
+	font-family: myfont-ar;
+	src:url(../fonts/ArbFONTS-Graphology_Bold.otf);
+}
+
+@font-face{
+	font-family: myfont-ar;
+	src:url(../fonts/ArbFONTS-Graphology_Regular.eot);
+}
+
+@font-face{
+	font-family: myfont-bold-ar;
+	src:url(../fonts/ArbFONTS-Graphology_Bold.otf);
+}
+
+@font-face{
+	font-family: myfont-bold-ar;
+	src:url(../fonts/ArbFONTS-Graphology_Bold.eot);
+}
